@@ -9,5 +9,5 @@ public interface ElevatorIO {
     public double getVel();
 
     public void resetPos();
-    
+
 }
