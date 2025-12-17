@@ -9,6 +9,8 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/Faults/Active Faults": "Alerts",
+      "/Faults/Total Faults": "Alerts",
       "/Robot/autos": "String Chooser",
       "/Robot/drive/field2d": "Field2d",
       "/Robot/drive/frontLeft/driveFeedback": "PIDController",
@@ -21,6 +23,7 @@
       "/Robot/drive/rearRight/turnFeedback": "PIDController",
       "/Robot/drive/rotationController": "PIDController",
       "/Robot/drive/translationController": "ProfiledPIDController",
+      "/SmartDashboard/Alerts": "Alerts",
       "/SmartDashboard/Scheduler": "Scheduler",
       "/SmartDashboard/VisionSystemSim-main/Sim Field": "Field2d",
       "/SmartDashboard/drive dynamic backward": "Command",
@@ -41,11 +44,6 @@
       "/SmartDashboard/turn quasistatic forward": "Command"
     },
     "windows": {
-      "/Robot/autos": {
-        "window": {
-          "visible": true
-        }
-      },
       "/Robot/drive/field2d": {
         "bottom": 1476,
         "height": 8.210550308227539,
@@ -72,14 +70,19 @@
     }
   },
   "NetworkTables": {
+    "Persistent Values": {
+      "open": false
+    },
     "Retained Values": {
       "open": false
     },
+    "retained": {
+      "Robot": {
+        "open": true
+      }
+    },
     "transitory": {
       "Robot": {
-        "autos": {
-          "open": true
-        },
         "drive": {
           "Pose2d##v_/Robot/drive/getPose": {
             "Rotation2d##v_rotation": {
@@ -152,10 +155,7 @@
           },
           "open": true
         },
-        "open": true,
-        "vision": {
-          "open": true
-        }
+        "open": true
       },
       "Shuffleboard": {
         "open": true
@@ -164,5 +164,20 @@
   },
   "NetworkTables Info": {
     "visible": true
+  },
+  "Plot": {
+    "Plot <0>": {
+      "plots": [
+        {
+          "backgroundColor": [
+            0.0,
+            0.0,
+            0.0,
+            0.8500000238418579
+          ],
+          "height": 338
+        }
+      ]
+    }
   }
 }

@@ -9,6 +9,7 @@ import static org.sciborgs1155.robot.Constants.DEADBAND;
 import static org.sciborgs1155.robot.Constants.PERIOD;
 import static org.sciborgs1155.robot.drive.DriveConstants.*;
 
+import edu.wpi.first.epilogue.Epilogue;
 import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
@@ -68,8 +69,7 @@ public class Robot extends CommandRobot implements Logged {
     // TODO: Add configs for all additional libraries, components, intersubsystem interaction
     // Configure logging with DataLogManager, Monologue, URCL, and FaultLogger
     DataLogManager.start();
-    Monologue.setupMonologue(this, "/Robot", false, true);
-    addPeriodic(Monologue::updateAll, PERIOD.in(Seconds));
+    // Epilogue.bind(this);
     addPeriodic(FaultLogger::update, 2);
 
     SmartDashboard.putData(CommandScheduler.getInstance());

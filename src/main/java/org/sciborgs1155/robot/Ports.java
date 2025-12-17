@@ -24,5 +24,4 @@ public final class Ports {
     public static final int FRONT_LEADER = 14;
     public static final int BACK_FOLLOWER = 13;
   }
-  
 }

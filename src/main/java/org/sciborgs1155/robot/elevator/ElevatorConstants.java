@@ -1,4 +1,3 @@
-
 package org.sciborgs1155.robot.elevator;
 
 import static edu.wpi.first.units.Units.Amps;
@@ -24,6 +23,7 @@ public class ElevatorConstants {
   public static final double kI = 0.0;
   public static final double kD = 0.0;
 
+  
   public static final double kS = 0.0755;
   public static final double kG = 0.2645;
   public static final double kV = 3.7;

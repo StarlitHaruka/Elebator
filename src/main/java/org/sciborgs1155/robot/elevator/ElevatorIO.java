@@ -2,12 +2,11 @@ package org.sciborgs1155.robot.elevator;
 
 public interface ElevatorIO {
 
-    public void setVoltage(double v);
+  public void setVoltage(double v);
 
-    public double getPos();
+  public double getPos();
 
-    public double getVel();
+  public double getVel();
 
-    public void resetPos();
-
+  public void resetPos();
 }
