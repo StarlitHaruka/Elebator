@@ -47,7 +47,7 @@ public class Elevator extends SubsystemBase {
     }
   }
 
-  @Logged
+  
   private final ProfiledPIDController pid =
       new ProfiledPIDController(
           kP,
@@ -56,7 +56,7 @@ public class Elevator extends SubsystemBase {
           new TrapezoidProfile.Constraints(
               MAX_VELOCITY.in(MetersPerSecond), MAX_ACCEL.in(MetersPerSecondPerSecond)));
 
-  @Logged private final ElevatorFeedforward ff = new ElevatorFeedforward(kS, kG, kV);
+  private final ElevatorFeedforward ff = new ElevatorFeedforward(kS, kG, kV);
 
   public Elevator(ElevatorIO hardware) {
 
@@ -122,31 +122,31 @@ public class Elevator extends SubsystemBase {
         .withName("manual elevator");
   }
 
-  private Command cleanLevel(Level level) {
+  // private Command cleanLevel(Level level) {
 
-    /*invalid levels */
-    if (level == Level.L1 || level == Level.L4) {
-      return retract();
-    }
-    return goTo(level.extension.in(Meters));
-  }
+  //   /*invalid levels */
+  //   if (level == Level.L1 || level == Level.L4) {
+  //     return retract();
+  //   }
+  //   return goTo(level.extension.in(Meters));
+  // }
 
-  @Logged
+  
   public double pos() {
     return hardware.getPos();
   }
 
-  @Logged
+  
   public double vel() {
     return hardware.getVel();
   }
 
-  @Logged
+  
   public double getPosSetpoint() {
     return pid.getSetpoint().position;
   }
 
-  @Logged
+  
   public double getVelSetpoint() {
     return pid.getSetpoint().velocity;
   }
@@ -159,6 +159,7 @@ public class Elevator extends SubsystemBase {
     double lastVel = pid.getSetpoint().velocity;
     double feedb = pid.calculate(hardware.getPos(), goal);
     double feedf = ff.calculateWithVelocities(lastVel, pid.getSetpoint().velocity);
+    hardware.setVoltage(feedf + feedb);
   }
 
   public void close() throws Exception {

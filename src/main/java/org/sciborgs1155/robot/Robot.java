@@ -69,7 +69,7 @@ public class Robot extends CommandRobot implements Logged {
     // TODO: Add configs for all additional libraries, components, intersubsystem interaction
     // Configure logging with DataLogManager, Monologue, URCL, and FaultLogger
     DataLogManager.start();
-    // Epilogue.bind(this);
+    Epilogue.bind(this);
     addPeriodic(FaultLogger::update, 2);
 
     SmartDashboard.putData(CommandScheduler.getInstance());
